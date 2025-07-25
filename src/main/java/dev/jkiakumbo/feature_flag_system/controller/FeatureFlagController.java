@@ -4,6 +4,7 @@ import dev.jkiakumbo.feature_flag_system.model.FeatureFlag;
 import dev.jkiakumbo.feature_flag_system.service.FeatureFlagService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +43,7 @@ public class FeatureFlagController {
             @PathVariable String name,
             @RequestParam String userId
     ) {
-        boolean isEnabled = service.isFeatureEnabled(name, userId);
+        boolean isEnabled = service.isFeatureFlagEnabled(name, userId);
         return ResponseEntity.ok(Map.of("enabled", isEnabled));
     }
 
@@ -61,7 +62,8 @@ public class FeatureFlagController {
         return ResponseEntity.ok(featureFlag);
     }
 
-    public ResponseEntity<?> deleteFlag(String name) {
+    @DeleteMapping("/{name}")
+    public ResponseEntity<?> deleteFlag(@PathVariable  String name) {
         service.deleteFeatureFlag(name);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

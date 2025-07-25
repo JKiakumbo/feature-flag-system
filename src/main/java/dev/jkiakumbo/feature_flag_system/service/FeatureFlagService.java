@@ -14,8 +14,8 @@ public class FeatureFlagService {
         this.store = store;
     }
 
-    public boolean isFeatureEnabled(String featureName, String userId) {
-        FeatureFlag flag = store.getFlag(featureName);
+    public boolean isFeatureFlagEnabled(String name, String userId) {
+        FeatureFlag flag = store.getFlag(name);
         if (flag == null) {
             return false;
         }
