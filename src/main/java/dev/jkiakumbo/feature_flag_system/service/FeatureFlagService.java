@@ -33,11 +33,20 @@ public class FeatureFlagService {
         return store.getAllFlags();
     }
 
-    public FeatureFlag getFeatureFlag(String featureName) {
-        return store.getFlag(featureName);
+    public FeatureFlag getFeatureFlag(String name) {
+        return store.getFlag(name);
     }
 
-    public void setFeatureFlag(String featureName, FeatureFlag feature) {
-        store.setFlag(featureName, feature);
+    public void setFeatureFlag(String name, FeatureFlag flag) {
+        store.setFlag(name, flag);
+    }
+
+    public FeatureFlag updateFeatureFlag(String name, FeatureFlag flag) {
+        store.setFlag(name, flag);
+        return store.getFlag(name);
+    }
+
+    public void deleteFeatureFlag(String name) {
+        store.deleteFlag(name);
     }
 }

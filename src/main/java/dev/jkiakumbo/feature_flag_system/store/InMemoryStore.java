@@ -20,4 +20,8 @@ public class InMemoryStore {
     public Collection<FeatureFlag> getAllFlags() {
         return flags.values();
     }
+
+    public void deleteFlag(String name) {
+        flags.remove(name);
+    }
 }
