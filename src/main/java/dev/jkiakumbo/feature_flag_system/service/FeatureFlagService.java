@@ -1,16 +1,16 @@
 package dev.jkiakumbo.feature_flag_system.service;
 
 import dev.jkiakumbo.feature_flag_system.model.FeatureFlag;
-import dev.jkiakumbo.feature_flag_system.store.InMemoryStore;
+import dev.jkiakumbo.feature_flag_system.store.FeatureFlagStore;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
 @Service
 public class FeatureFlagService {
-    private final InMemoryStore store;
+    private final FeatureFlagStore store;
 
-    public FeatureFlagService(InMemoryStore store) {
+    public FeatureFlagService(FeatureFlagStore store) {
         this.store = store;
     }
 
