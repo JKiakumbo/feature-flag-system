@@ -1,11 +1,13 @@
 package dev.jkiakumbo.feature_flag_system.store;
 
 import dev.jkiakumbo.feature_flag_system.model.FeatureFlag;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Repository
 public class InMemoryStore {
     private Map<String, FeatureFlag> flags = new ConcurrentHashMap<>();
 
